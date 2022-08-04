@@ -1,15 +1,28 @@
 Graphical interface of chemical signaling models for MOOSE
 
-Note: git pull moose-core 
-if installed via pip then copy add_Delete_ChemicalSolver.py into "~/moose-core/python/moose/chemUtil/"
+Note: update moose-core
+  - git pull moose-core 
+  - if installed via pip then copy 
+      -- add_Delete_ChemicalSolver.py into "~/.local/python3.x/site-packages/moose/chemUtils/"
+[To know where moose is located go to command line type
+ python3
+   > import moose
+   > moose.__path__
+   This will show ~/.local/python3.x/site-packages/moose
 
+- To run moose-gui we need matplotlib,pyqt5,pygraphviz,networkx,qt5svg
 
-python3 -m pip install matplotlib
-python3 -m pip install pyqt5
-sudo apt-get install graphviz libgraphviz-dev pkg-config
-python3 -m pip install pygraphviz
-python3 -m pip install networkx
+    - python3 -m pip install matplotlib
+    - python3 -m pip install pyqt5
+    - sudo apt-get install graphviz libgraphviz-dev pkg-config
+    - python3 -m pip install pygraphviz
+    - python3 -m pip install networkx
+    - python3 -m pip install pyqt5.qtsvg
 
-https://github.com/BhallaLab/CAMP2022-moose-gui moose-gui
-cd moose-gui
-python3 mgui.py examples/reaction.g
+[The instruction s for Ubuntu, for mac use brew]
+For import imp deprecation error run
+sudo apt-get install -y libxcb-xinerama0
+
+- git clone https://github.com/BhallaLab/CAMP2022-moose-gui moose-gui
+  cd moose-gui
+  python3 mgui.py examples/reaction.g
