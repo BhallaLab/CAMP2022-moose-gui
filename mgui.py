@@ -60,7 +60,7 @@ Oct 5  : clean up with round trip of dialog_exe
 
 '''
 # Code:
-import imp
+#import imp
 import importlib
 import inspect
 import code
@@ -411,13 +411,12 @@ class MWindow(QtWidgets.QMainWindow):
         """
         if (not re) and name in sys.modules:
             return sys.modules[name]
-        fp, pathname, description = imp.find_module(name, [config.MOOSE_PLUGIN_DIR])
+        #fp, pathname, description = imp.find_module(name, [config.MOOSE_PLUGIN_DIR])
         try:
-            module = imp.load_module(name, fp, pathname, description)
+            module = importlib.import_module(name)
         finally:
-            if fp:
-                fp.close()
-
+            pass
+                
         return module
 
     def getMyDockWidgets(self):
